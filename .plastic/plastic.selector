@@ -1,0 +1,4 @@
+repository "piratesandzombies2@PotapovVladislavSergeevich@cloud"
+  path "/"
+    br "/main"
+    co "/main"
