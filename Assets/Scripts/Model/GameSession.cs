@@ -8,10 +8,8 @@ namespace Scripts.Model
     {
 
         [SerializeField] private PlayerData _data;
-
-        [SerializeField] int onLvlStartCoins;
-        [SerializeField] int onLvlStartHP;
-        [SerializeField] bool onLvlStartIsArmed;
+        [SerializeField] private PlayerData _savedData;
+       
 
         public PlayerData Data => _data;
         private void Awake()
@@ -30,16 +28,18 @@ namespace Scripts.Model
 
         private void Start()
         {
-            onLvlStartCoins = _data.Coins;
-            onLvlStartHP = _data.HP;
-            onLvlStartIsArmed = _data.IsArmed;
+     
+            _savedData = _data;
         }
 
-        public void IfDie()
+        public void SaveData ()
         {
-            _data.Coins = onLvlStartCoins;
-            _data.HP = onLvlStartHP;
-            _data.IsArmed = onLvlStartIsArmed;
+            _savedData = _data;
+        }
+
+        public void LoadData ()
+        {
+            _data = _savedData;
         }
         private bool IsSessionExist()
         {

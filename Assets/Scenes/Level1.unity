@@ -7856,6 +7856,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd609295800f834e9d5bafba0745a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1077001818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5827751541509692187, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+  m_PrefabInstance: {fileID: 5967932777641788462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d924e536761ddaf4e97cfcaf1908e061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1097613910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12189,12 +12200,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    Coins: 0
+    Coins: 10
     HP: 15
+    IsArmed: 1
+  _savedData:
+    Coins: 0
+    HP: 0
     IsArmed: 0
-  onLvlStartCoins: 0
-  onLvlStartHP: 0
-  onLvlStartIsArmed: 0
 --- !u!4 &1903319317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3062401221488681790, guid: 11f374e2afe1f654b9559afbbeaa147e, type: 3}
@@ -13513,6 +13525,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1894654922}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1077001818}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadData
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Reload
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scripts.Model.GameSession, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Scripts.Components.ReloadLevelComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5967932776564816503, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
       propertyPath: CoinsTxt
       value: 
