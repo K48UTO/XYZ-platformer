@@ -5191,9 +5191,21 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7696889353905820087, guid: c43f60ba162bc0c4b9c83630c80e9dba, type: 3}
+        m_TargetAssemblyTypeName: Scripts.Model.GameSession, Assembly-CSharp
+        m_MethodName: LoadData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5827751541509692187}
         m_TargetAssemblyTypeName: Scripts.Components.ReloadLevelComponent, Assembly-CSharp
-        m_MethodName: ReloadOnDie
+        m_MethodName: Reload
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
