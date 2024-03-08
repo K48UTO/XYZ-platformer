@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Scripts.Components;
+using Scripts.Creatures;
 using UnityEngine;
 
 public class SuperJumpEffect : MonoBehaviour
