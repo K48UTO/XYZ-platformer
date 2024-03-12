@@ -4935,6 +4935,7 @@ GameObject:
   - component: {fileID: 5967932776564816496}
   - component: {fileID: 5967932776564816462}
   - component: {fileID: 5827751541509692187}
+  - component: {fileID: 1077001827}
   m_Layer: 9
   m_Name: Hero
   m_TagString: Player
@@ -5041,29 +5042,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd609295800f834e9d5bafba0745a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackRange: {fileID: 5967932777251057450}
   _speed: 5
   _jumpSpeed: 12
   _damageJumpSpeed: 20
-  _interacionRadius: 1
-  _groundCheckRadius: 0.29
-  _attackRange: {fileID: 5967932777251057450}
   _damage: 1
-  _armed: {fileID: 9100000, guid: 5f50e37ee43b3814a989fd48208f552a, type: 2}
-  _disarmed: {fileID: 9100000, guid: 971e486f6c6d44147972566f7ce52b84, type: 2}
-  _footStepParticles: {fileID: 5967932777384857874}
-  _jumpParticles: {fileID: 5967932778025008346}
-  _fallParticles: {fileID: 5967932776527165441}
-  _AttackParticles1: {fileID: 5967932776697453406}
   _groundCheck: {fileID: 5967932777354759530}
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 64
+  _groundCheckRadius: 0.29
+  _particles: {fileID: 1077001827}
+  _isFalling: 0
+  _isTakingDamage: 0
+  _isGrounded: 0
+  _interacionRadius: 1
+  _armed: {fileID: 9100000, guid: 5f50e37ee43b3814a989fd48208f552a, type: 2}
+  _disarmed: {fileID: 9100000, guid: 971e486f6c6d44147972566f7ce52b84, type: 2}
   _hitParticles: {fileID: 5967932775941546253}
   CoinsTxt: {fileID: 0}
-  _isTakingDamage: 0
-  _isFalling: 0
-  _minFallSpeed: -5
-  _isGrounded: 0
   collisionForceThreshold: 5
 --- !u!114 &5967932776564816500
 MonoBehaviour:
@@ -5191,7 +5188,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7696889353905820087, guid: c43f60ba162bc0c4b9c83630c80e9dba, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Scripts.Model.GameSession, Assembly-CSharp
         m_MethodName: LoadData
         m_Mode: 1
@@ -5312,6 +5309,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d924e536761ddaf4e97cfcaf1908e061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1077001827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5967932776564816507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecff17df69593f498610c2f9754f334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners:
+  - Id: Run
+    Component: {fileID: 5967932777384857874}
+  - Id: Jump
+    Component: {fileID: 5967932778025008346}
+  - Id: Fall
+    Component: {fileID: 5967932776527165441}
+  - Id: Attack
+    Component: {fileID: 5967932776697453406}
 --- !u!1 &5967932776697453376
 GameObject:
   m_ObjectHideFlags: 0

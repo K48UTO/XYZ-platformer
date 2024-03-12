@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Components;
 
@@ -15,11 +13,16 @@ namespace Scripts.Creatures
         [SerializeField] private float _damageJumpSpeed;
         [SerializeField] private int _damage;
 
+        [SerializeField] protected bool _allowDoubleJump;
+        [SerializeField] protected bool _allowSuperJump = false;
+        [SerializeField] protected float _SuperJumpBonus = 2;
+        [SerializeField] float collisionForceThreshold = 5.0f; // ћожно изменить на нужное значение
+
         [SerializeField] private LayerCheck _groundCheck;
         [SerializeField] protected LayerMask _interactionLayer;
         [SerializeField] protected float _groundCheckRadius;
 
-        [SerializeField] private SpawnListComponent _particles;
+        [SerializeField] protected SpawnListComponent _particles;
 
         [SerializeField] private bool _isFalling = false;
         [SerializeField] private bool _isTakingDamage = false; // флаг состо€ни€ получени€ урона 
@@ -84,7 +87,38 @@ namespace Scripts.Creatures
 
         protected virtual float CalculateJumpVelocity(float yVelocity)
         {
+            var isFalling = _rigidbody.velocity.y <= 0.001f;
+
+            if (_isGrounded)
+            {
+                if (_allowSuperJump)
+                {
+                    yVelocity += _jumpSpeed * _SuperJumpBonus;
+
+                    _allowSuperJump = false;
+                }
+                else
+                {
+                    yVelocity += _jumpSpeed;
+
+                }
+                _particles.Spawn("Jump");
+            }
+            else if (_allowDoubleJump && isFalling)
+            {
+                Debug.Log("doubleJump");
+                yVelocity = _jumpSpeed;
+                _particles.Spawn("Jump");
+                _allowDoubleJump = false;
+            }
+            else
+            {
+                return yVelocity;
+            }
+
             return yVelocity;
+
+         
 
         }
 
@@ -158,6 +192,25 @@ namespace Scripts.Creatures
 
                 }
             }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+
+            // ѕровер€ем, достаточно ли сильное столкновение снизу (относительна€ скорость по Y)
+            if (collision.relativeVelocity.y >= collisionForceThreshold)
+            {
+                SpawnFallDust();
+            }
+        }
+        public void SpawnFallDust()
+        {
+            _particles.Spawn("Fall");
+        }
+
+        public void SpawnFootDust()
+        {
+            _particles.Spawn("Run");
         }
 
 

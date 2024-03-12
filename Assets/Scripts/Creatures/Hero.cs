@@ -20,42 +20,14 @@ namespace Scripts.Creatures
 
         [Space]
         [Header("Particles")]
-        [SerializeField] private SpawnComponent _footStepParticles;
-        [SerializeField] private SpawnComponent _jumpParticles;
-        [SerializeField] private SpawnComponent _fallParticles;
-        [SerializeField] private SpawnComponent _AttackParticles1;
-
-       
         private Collider2D[] _interactionResult = new Collider2D[10];
 
         [SerializeField] ParticleSystem _hitParticles;
 
-
-
-        [SerializeField] private Text CoinsTxt;
-
-
-
-        [SerializeField] private float _minFallSpeed = -10.0f;
-        private float _maxFallSpeed = 0f;
-
-
-
-
-      
-        private bool _allowDoubleJump;
-        private bool _allowSuperJump = false;
-        private float _SuperJumpBonus = 2;
-
-       
+        [SerializeField] private Text CoinsTxt;        
 
         private GameSession _session;
-
-
-       protected override void Awake ()
-        {
-            base.Awake ();
-        }
+      
         public void OnHealthChanged(int currentHealth)
         {
             _session.Data.HP = currentHealth;
@@ -88,103 +60,26 @@ namespace Scripts.Creatures
         //    }
         //    _rigidbody.velocity += Physics2D.gravity * Time.fixedDeltaTime;
         //}
-        protected override void FixedUpdate()
-        {
-            base.FixedUpdate();
-
-        }
-
-        public override void  SetDirection(Vector2 directionVector)
-        {
-            base.SetDirection(directionVector);
-        }
-
         protected override float CalculateYVelocity()
         {
             if (_isGrounded) _allowDoubleJump = true;
             return base.CalculateYVelocity();
           
-        }
-
-        protected override float CalculateJumpVelocity(float yVelocity)
-        {
-            var isFalling = _rigidbody.velocity.y <= 0.001f;
-
-
-            //if (!isFalling) return yVelocity;
-
-            if (_isGrounded)
-            {
-                if (_allowSuperJump)
-                {
-                    yVelocity += _jumpSpeed * _SuperJumpBonus;
-                    SpawnJumpDust();
-                    _allowSuperJump = false;
-                }
-                else
-                {
-                    yVelocity += _jumpSpeed;
-                    SpawnJumpDust();
-                }
-            }
-            else if (_allowDoubleJump && isFalling)
-            {
-                Debug.Log("doubleJump");
-                yVelocity = _jumpSpeed;
-                SpawnJumpDust();
-                _allowDoubleJump = false;
-            }
-            else
-            {
-                return yVelocity;
-            }
-
-            return yVelocity;
-            
-
-        }
-
-
-
-        [SerializeField] float collisionForceThreshold = 5.0f; // Можно изменить на нужное значение
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-
-            // Проверяем, достаточно ли сильное столкновение снизу (относительная скорость по Y)
-            if (collision.relativeVelocity.y >= collisionForceThreshold)
-            {
-                SpawnFallDust();
-            }
-        }
-
-      
-
-        protected override void UpdateSpriteDirection()
-        {
-            base.UpdateSpriteDirection();
+        }   
        
-        }
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-
-
             Handles.color = IsGrounded() ? HandlesUtils.TransparentGreen : HandlesUtils.TransparentRed;
             Handles.DrawSolidDisc(transform.position, Vector3.forward, _groundCheckRadius);
         }
 #endif
-
-
-     
-
         public void AddCoin(int coin)
         {
             _session.Data.Coins += coin;
             CoinsTxt.text = _session.Data.Coins.ToString();
 
         }
-
         public override void TakeDamage()
         {
             base.TakeDamage();
@@ -192,9 +87,7 @@ namespace Scripts.Creatures
             {
                 SpawnCoins();
             }
-
         }
-
         private void SpawnCoins()
         {
             var numCoinsToDispose = Mathf.Min(_session.Data.Coins, 5);
@@ -207,12 +100,7 @@ namespace Scripts.Creatures
             _hitParticles.gameObject.SetActive(true);
             _hitParticles.Play();
             CoinsTxt.text = _session.Data.Coins.ToString();
-
-
         }
-
-   
-
 
         public void Interact()
         {
@@ -238,35 +126,21 @@ namespace Scripts.Creatures
             _SuperJumpBonus = BonusValue;
             _allowSuperJump = true;
         }
-        public void SpawnFootDust()
-        {
-            _footStepParticles.Spawn();
-        }
-        public void SpawnJumpDust()
-        {
-            _jumpParticles.Spawn();
-        }
-        public void SpawnFallDust()
-        {
-            _fallParticles.Spawn();
-        }
         public void SpawnAttackDust()
         {
-            _AttackParticles1.Spawn();
+            _particles.Spawn("Attack");
         }
 
         public override void Attack()
         {
             if (!_session.Data.IsArmed) return;
             base.Attack();
-
         }
 
         public override void OnDoAttack()
         {
             SpawnAttackDust();
-            base.OnDoAttack();
-            
+            base.OnDoAttack();            
         }
 
         internal void ArmHero()
@@ -278,7 +152,6 @@ namespace Scripts.Creatures
         private void UpdateHeroWeapon()
         {
             _animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
-
         }
     }
 }
