@@ -11,7 +11,7 @@ namespace Scripts.Creatures
         [SerializeField] private float _speed;
         [SerializeField] protected float _jumpSpeed;
         [SerializeField] private float _damageJumpSpeed;
-        [SerializeField] private int _damage;
+
 
         [SerializeField] protected bool _allowDoubleJump;
         [SerializeField] protected bool _allowSuperJump = false;
@@ -118,8 +118,6 @@ namespace Scripts.Creatures
 
             return yVelocity;
 
-         
-
         }
 
         protected bool IsGrounded()
@@ -179,19 +177,8 @@ namespace Scripts.Creatures
 
         public virtual void OnDoAttack()
         {
-        
-            var gos = _attackRange.GetObjectsInRange();
-            foreach (var go in gos)
-            {
-
-                var hp = go.gameObject.GetComponent<HealthComponent>();
-                if (hp != null && go.CompareTag("Barrel"))
-                {
-
-                    hp.ApplyValue(-_damage);
-
-                }
-            }
+             SpawnAttackDust();
+            _attackRange.Check();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -214,7 +201,10 @@ namespace Scripts.Creatures
         }
 
 
-
+        public void SpawnAttackDust()
+        {
+            _particles.Spawn("Attack");
+        }
 
 
 
