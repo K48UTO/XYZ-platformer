@@ -60,6 +60,9 @@ TagManager:
   - name: Interactive
     uniqueID: 2800161341
     locked: 0
+  - name: NPS
+    uniqueID: 1660513683
+    locked: 0
   - name: Player
     uniqueID: 451801831
     locked: 0

@@ -7,7 +7,8 @@ namespace Scripts.Creatures
     {
 
         [SerializeField] private CheckCircleOverlaps _attackRange;
-
+        [Header("Parameters")]
+        [SerializeField] private bool _invertScale;
         [SerializeField] private float _speed;
         [SerializeField] protected float _jumpSpeed;
         [SerializeField] private float _damageJumpSpeed;
@@ -19,6 +20,8 @@ namespace Scripts.Creatures
         [SerializeField] float collisionForceThreshold = 5.0f; // Можно изменить на нужное значение
 
         [SerializeField] private LayerCheck _groundCheck;
+   
+
         [SerializeField] protected LayerMask _interactionLayer;
         [SerializeField] protected float _groundCheckRadius;
 
@@ -124,6 +127,9 @@ namespace Scripts.Creatures
         {
             return _groundCheck.IsTouchingLayer;
         }
+
+  
+
         protected virtual void CalculateGrounded()
         {
             _isGrounded = IsGrounded();
@@ -144,7 +150,7 @@ namespace Scripts.Creatures
         {
             _animator.SetTrigger(Hit);
             _isTakingDamage = true;
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
 
             Debug.Log("Taking damage called");
           
@@ -152,13 +158,14 @@ namespace Scripts.Creatures
         }
         protected virtual void UpdateSpriteDirection()
         {
+            var multipler = _invertScale ? -1 : 1;
             if (_direction.x > 0)
             {
-                transform.localScale = Vector3.one;
+                transform.localScale = new Vector3 (multipler , 1, 1);
             }
             else if (_direction.x < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-1 * multipler, 1, 1);
 
             }
         }

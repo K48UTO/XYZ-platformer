@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 540494269634749764}
   - component: {fileID: 3710797865177481776}
+  - component: {fileID: 2000894424}
   m_Layer: 9
   m_Name: InteractionCheck
   m_TagString: Untagged
@@ -47,15 +48,15 @@ MonoBehaviour:
   _radius: 0.88
   _mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1535
   _tags:
   - Interactable
   _onOverLap:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scripts.Components.ChangeHealthComponent, Assembly-CSharp
-        m_MethodName: ApplyValue
+      - m_Target: {fileID: 2000894424}
+        m_TargetAssemblyTypeName: Scripts.Components.DoInteractionComponent, Assembly-CSharp
+        m_MethodName: DoInteraction
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -65,6 +66,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2000894424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959926973573870411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40998b32abdb0ba48a975071a461e0bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5967932775941546255
 GameObject:
   m_ObjectHideFlags: 0
@@ -5108,11 +5121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd609295800f834e9d5bafba0745a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackRange: {fileID: 0}
+  _attackRange: {fileID: 5967932777251057450}
   _speed: 5
   _jumpSpeed: 12
   _damageJumpSpeed: 20
-  _damage: 1
+  _allowDoubleJump: 0
   _allowSuperJump: 0
   _SuperJumpBonus: 2
   collisionForceThreshold: 5
@@ -5126,7 +5139,7 @@ MonoBehaviour:
   _isTakingDamage: 0
   _isGrounded: 0
   _interacionRadius: 1
-  _interactionCheck: {fileID: 5967932777251057450}
+  _interactionCheck: {fileID: 3710797865177481776}
   _armed: {fileID: 9100000, guid: 5f50e37ee43b3814a989fd48208f552a, type: 2}
   _disarmed: {fileID: 9100000, guid: 971e486f6c6d44147972566f7ce52b84, type: 2}
   _hitParticles: {fileID: 5967932775941546253}
@@ -5493,7 +5506,7 @@ MonoBehaviour:
   _radius: 0.2
   _mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   _tags:
   - Enemy
   - Barrel

@@ -40,8 +40,7 @@ namespace Scripts
                 if (isInTag)
                 {
                     _onOverLap?.Invoke(_interactionResult[i].gameObject);
-
-                }
+                }   
             }
         }
 
