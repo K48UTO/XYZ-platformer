@@ -65,6 +65,7 @@ namespace Scripts.Components
         internal void SetHealth(int health)
         {
             _currentHealth = health;
+            Debug.Log("Установлено здоровья " + health);
         }
     }
     [Serializable]

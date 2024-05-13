@@ -16,31 +16,30 @@ namespace Scripts.Model
         {
             if (IsSessionExist())
             {
-                DestroyImmediate(gameObject);
+                Destroy(gameObject);
 
             }
             else
             {
+                Save();
                 DontDestroyOnLoad(this);
           
             }
         }
 
-        private void Start()
+   
+        public void Save ()
         {
-     
-            _savedData = _data;
+            _savedData = _data.Clone();
         }
 
-        public void SaveData ()
+        public void Load()
         {
-            _savedData = _data;
+            Debug.Log($"Loading data: HP before = {_data.HP}");
+            _data = _savedData.Clone();
+            Debug.Log($"HP after = {_data.HP}");
         }
 
-        public void LoadData ()
-        {
-            _data = _savedData;
-        }
         private bool IsSessionExist()
         {
             var sessions = FindObjectsOfType<GameSession>();

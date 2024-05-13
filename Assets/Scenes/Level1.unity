@@ -10674,10 +10674,6 @@ PrefabInstance:
       propertyPath: _points.Array.data[1]
       value: 
       objectReference: {fileID: 1500197733}
-    - target: {fileID: 5967932776564816497, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
-      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5967932776564816505, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -10726,9 +10722,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sharky 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1288110238, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
+--- !u!114 &1356295900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5827751541509692187, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+  m_PrefabInstance: {fileID: 5967932777641788462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d924e536761ddaf4e97cfcaf1908e061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1362428528
 GameObject:
   m_ObjectHideFlags: 0
@@ -12511,17 +12517,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2418658781202776990, guid: 82e2492b041eaa444a4bb50de0676134, type: 3}
   m_PrefabInstance: {fileID: 1771950709}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1894654922 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7696889353905820087, guid: c43f60ba162bc0c4b9c83630c80e9dba, type: 3}
-  m_PrefabInstance: {fileID: 7696889352577938045}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6a0aa9cf575b84f934c067647fc5ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1903319317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3062401221488681790, guid: 11f374e2afe1f654b9559afbbeaa147e, type: 3}
@@ -13875,9 +13870,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 5f50e37ee43b3814a989fd48208f552a, type: 2}
     - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1894654922}
+      objectReference: {fileID: 1356295900}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reload
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scripts.Components.ReloadLevelComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5967932776564816503, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
       propertyPath: CoinsTxt
       value: 
