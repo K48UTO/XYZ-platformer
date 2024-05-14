@@ -1,4 +1,5 @@
 
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,15 +22,20 @@ namespace Scripts.Model
             }
             else
             {
-                Save();
+                
                 DontDestroyOnLoad(this);
           
             }
         }
 
-   
+        private void Start()
+        {
+            StartCoroutine(CallMethodWithDelay(2f));
+        }
+
         public void Save ()
         {
+            Debug.Log("Save" + _savedData.HP);
             _savedData = _data.Clone();
         }
 
@@ -52,6 +58,12 @@ namespace Scripts.Model
 
             }
             return false;
+        }
+
+        IEnumerator CallMethodWithDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            Save();
         }
     }
 
