@@ -13,8 +13,11 @@ namespace Scripts.Creatures
 
 
         [SerializeField] private float _alarmDelay = 0.5f;
+        [SerializeField] private float _attackDelay = 1f;
         [SerializeField] private float _attackCoolDown = 1f;
         [SerializeField] private float _missHeroCooldown = 1f;
+        
+        
 
 
         private bool _isDead;
@@ -58,10 +61,14 @@ namespace Scripts.Creatures
         {
             _isDead = true;
             _animator.SetBool(IsdeadKey, true);
+            _creature.SetDirection(Vector2.zero);
             if (_current != null) StopCoroutine(_current);
+        }
+
+        public void ChangeBodySizeAfterDeath()
+        {
             var ColliderBodySize = GetComponent<CapsuleCollider2D>();
             ColliderBodySize.size = new Vector2(0.6f, 0.6f);
-
         }
 
 
@@ -113,6 +120,7 @@ namespace Scripts.Creatures
         {
             while (_canAttack.IsTouchingLayer)
             {
+                yield return new WaitForSeconds(_attackDelay);
                 _creature.Attack();
                 yield return new WaitForSeconds(_attackCoolDown);
             }

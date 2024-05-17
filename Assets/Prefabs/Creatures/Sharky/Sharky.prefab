@@ -5514,6 +5514,7 @@ MonoBehaviour:
   _vision: {fileID: 1164003116}
   _canAttack: {fileID: 8385339548456908506}
   _alarmDelay: 0.5
+  _attackDelay: 1
   _attackCoolDown: 1
   _missHeroCooldown: 1
 --- !u!114 &1288110237
