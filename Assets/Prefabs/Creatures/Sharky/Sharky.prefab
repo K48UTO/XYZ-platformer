@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1164003115}
   - component: {fileID: 1164003116}
   - component: {fileID: 3424874487605666200}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1562230651}
   - component: {fileID: 1562230653}
   - component: {fileID: 1562230652}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: 'AbyssCheck '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9135908331434098254}
   - component: {fileID: 3031947723212776548}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: ExclamationParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 540494269634749764}
   - component: {fileID: 3710797865177481776}
   - component: {fileID: 2000894424}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: InteractionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 5967932775941546250}
   - component: {fileID: 5967932775941546253}
   - component: {fileID: 5967932775941546252}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: ParticleCoins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5186,7 +5186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5967932776527165440}
   - component: {fileID: 5967932776527165441}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: FallPatriclesPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -5241,7 +5241,7 @@ GameObject:
   - component: {fileID: 1519524784219004729}
   - component: {fileID: 1397740535827908908}
   - component: {fileID: 1288110237}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Sharky
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5340,7 +5340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 2
-  _currentHealth: 25
+  _currentHealth: 2
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -5543,7 +5543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5967932776697453377}
   - component: {fileID: 5967932776697453406}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: AttackParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -5592,7 +5592,7 @@ GameObject:
   - component: {fileID: 1359617696}
   - component: {fileID: 4122548314983563919}
   - component: {fileID: 8385339548456908506}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -5703,7 +5703,7 @@ GameObject:
   - component: {fileID: 5967932777354759533}
   - component: {fileID: 5967932777354759530}
   - component: {fileID: 5967932777354759528}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5777,7 +5777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5967932777384857877}
   - component: {fileID: 5967932777384857874}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: FootStepParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -5823,7 +5823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5967932778025008349}
   - component: {fileID: 5967932778025008346}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: JumpParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -5869,7 +5869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7927189056520340937}
   - component: {fileID: 6384449969714944850}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: MissParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
