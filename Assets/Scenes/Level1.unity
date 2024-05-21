@@ -13870,6 +13870,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 5f50e37ee43b3814a989fd48208f552a, type: 2}
     - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _currentHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816497, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -14107,6 +14115,14 @@ PrefabInstance:
     - target: {fileID: 7696889353905820085, guid: c43f60ba162bc0c4b9c83630c80e9dba, type: 3}
       propertyPath: m_Name
       value: GameSession
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696889353905820087, guid: c43f60ba162bc0c4b9c83630c80e9dba, type: 3}
+      propertyPath: _data.HP
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696889353905820087, guid: c43f60ba162bc0c4b9c83630c80e9dba, type: 3}
+      propertyPath: _data.Coins
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7696889353905820087, guid: c43f60ba162bc0c4b9c83630c80e9dba, type: 3}
       propertyPath: _data.IsArmed

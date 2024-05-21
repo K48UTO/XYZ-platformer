@@ -36,7 +36,8 @@ namespace Scripts.Creatures
         {
             _session = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
-            Debug.Log("Передано из метода старт ХП" + _session.Data.HP);
+
+            Debug.Log("Передано из метода старт ХП " + _session.Data.HP);
             health.SetHealth(_session.Data.HP);
             UpdateHeroWeapon();
         }
@@ -45,7 +46,9 @@ namespace Scripts.Creatures
             if (_isGrounded) _allowDoubleJump = true;
             return base.CalculateYVelocity();
         }   
-       
+  
+
+
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {

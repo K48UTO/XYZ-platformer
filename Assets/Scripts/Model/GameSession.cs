@@ -22,18 +22,13 @@ namespace Scripts.Model
             }
             else
             {
-                
+                Save();
                 DontDestroyOnLoad(this);
           
             }
         }
 
-        private void Start()
-        {
-            StartCoroutine(CallMethodWithDelay(2f));
-        }
-
-        public void Save ()
+        public void Save()
         {
             Debug.Log("Save" + _savedData.HP);
             _savedData = _data.Clone();
@@ -41,9 +36,10 @@ namespace Scripts.Model
 
         public void Load()
         {
-            Debug.Log($"Loading data: HP before = {_data.HP}");
+            Debug.Log("Метод зазгрузки вызван");
+            Debug.Log($"Было Хп в _data на момент вызова метода: {_data.HP}");
             _data = _savedData.Clone();
-            Debug.Log($"HP after = {_data.HP}");
+            Debug.Log($"Стало Хп в _data {_data.HP}");
         }
 
         private bool IsSessionExist()
@@ -60,11 +56,7 @@ namespace Scripts.Model
             return false;
         }
 
-        IEnumerator CallMethodWithDelay(float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            Save();
-        }
+     
     }
 
 }

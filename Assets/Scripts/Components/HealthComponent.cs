@@ -14,26 +14,24 @@ namespace Scripts.Components
 
 
         [SerializeField] private bool _isInvincible = false;
-        private bool _isDead = false; // ƒобавлено новое поле дл€ отслеживани€ состо€ни€ мертв/жив
-
-      
+        private bool _isDead = false; 
 
         public void ApplyValue(int _value)
         {
-            if (_isInvincible && _value < 0 || _isDead) return; // ƒобавлена проверка на состо€ние мертвости
+            if (_isInvincible && _value < 0 || _isDead) return; 
 
             _currentHealth += _value;
 
             if (_value < 0)
             {
                 _onDamage?.Invoke();
-                Debug.Log("урона нанесено" + -_value);
+                Debug.Log("урона нанесено " + -_value);
             }
 
-            if (_currentHealth <= 0 && !_isDead) // ƒобавлена проверка, чтобы событие смерти вызывалось только один раз
+            if (_currentHealth <= 0 && !_isDead) 
             {
                 _onDie?.Invoke();
-                _isDead = true; // ќбновл€ем состо€ние до мертвого
+                _isDead = true; 
             }
             else if (_currentHealth > _maxHealth)
             {
@@ -62,12 +60,14 @@ namespace Scripts.Components
         }
 #endif
 
-        internal void SetHealth(int health)
+        public void SetHealth(int health)
         {
             _currentHealth = health;
             Debug.Log("”становлено здоровь€ " + health);
         }
     }
     [Serializable]
-    public class HealthChangeEvent: UnityEvent<int> { }
+    public class HealthChangeEvent: UnityEvent<int> 
+    {
+    }
 }

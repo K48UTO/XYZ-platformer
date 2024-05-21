@@ -10,11 +10,13 @@ namespace Scripts.Components
         public void Reload ()
         {
             var session = FindObjectOfType<GameSession>();
-            session.Load();
+     
 
             var scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
             
+            SceneManager.LoadScene(scene.name);
+            session.Load();
+
         }
     }
 }
