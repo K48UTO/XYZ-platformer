@@ -30,7 +30,7 @@ namespace Scripts.Model
 
         public void Save()
         {
-            Debug.Log("Save" + _savedData.HP);
+            Debug.Log("Save " +_data.HP);
             _savedData = _data.Clone();
         }
 

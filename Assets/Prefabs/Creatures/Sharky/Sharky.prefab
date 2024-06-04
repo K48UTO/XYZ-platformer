@@ -5513,6 +5513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vision: {fileID: 1164003116}
   _canAttack: {fileID: 8385339548456908506}
+  _abyssCheck: {fileID: 1562230653}
   _alarmDelay: 0.5
   _attackDelay: 1
   _attackCoolDown: 1

@@ -24,13 +24,18 @@ namespace Scripts.Creatures
 
         [SerializeField] ParticleSystem _hitParticles;
 
-        [SerializeField] private Text CoinsTxt;        
+        [SerializeField] private Text CoinsTxt;
 
         private GameSession _session;
-      
+
         public void OnHealthChanged(int currentHealth)
         {
-            _session.Data.HP = currentHealth;
+
+            Debug.Log("Метод OnHealthChanged вызван ");
+            if (currentHealth != 0)
+            {
+                _session.Data.HP = currentHealth;
+            }
         }
         private void Start()
         {
@@ -45,8 +50,8 @@ namespace Scripts.Creatures
         {
             if (_isGrounded) _allowDoubleJump = true;
             return base.CalculateYVelocity();
-        }   
-  
+        }
+
 
 
 #if UNITY_EDITOR
@@ -94,12 +99,23 @@ namespace Scripts.Creatures
             _SuperJumpBonus = BonusValue;
             _allowSuperJump = true;
         }
-       
+
 
         public override void Attack()
         {
             if (!_session.Data.IsArmed) return;
             base.Attack();
+        }
+
+        public void OnDoThrow()
+        {
+            _particles.Spawn("Throw");
+        }
+
+        public void Throw ()
+        {
+            Animator.SetTrigger(ThrowKey);
+
         }
 
         internal void ArmHero()

@@ -10,6 +10,8 @@ namespace Scripts.Creatures
     {
         [SerializeField] private LayerCheck _vision;
         [SerializeField] private LayerCheck _canAttack;
+        [SerializeField] private LayerCheck _abyssCheck;
+
 
 
         [SerializeField] private float _alarmDelay = 0.5f;
@@ -54,6 +56,7 @@ namespace Scripts.Creatures
         {
             if (_isDead ) return;
             _target = go;
+            SetDirectionToTarget();
             StartState(AgroToHero());
         }
 
@@ -89,6 +92,7 @@ namespace Scripts.Creatures
         {
             _particles.Spawn("Exclamation");
             yield return new WaitForSeconds(_alarmDelay);
+           
             StartState(GoToHero());
         }
         private IEnumerator GoToHero()
@@ -100,9 +104,18 @@ namespace Scripts.Creatures
                     StartState(Attack());
                 }
                 else
-                {
-                    SetDirectionToTarget();
+                {   
+                    if (IsAbyss())
+                    {
+                        _creature.SetDirection(Vector2.zero);
+                    }
+                    else 
+                    {
+                        SetDirectionToTarget();
+                    }
                 }
+                
+               
                 yield return null;
             }
 
@@ -126,12 +139,15 @@ namespace Scripts.Creatures
             }
             StartState(GoToHero());
         }
-    
-
-   
 
 
-    
+        private bool IsAbyss()
+        {
+            return !_abyssCheck.IsTouchingLayer;
+        }
+
+
+
 
     }
 
