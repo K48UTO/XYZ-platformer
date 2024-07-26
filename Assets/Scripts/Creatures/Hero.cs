@@ -18,6 +18,9 @@ namespace Scripts.Creatures
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
+        private static readonly int ThrowKey = Animator.StringToHash("throw");
+
+
         [Space]
         [Header("Particles")]
         //private Collider2D[] _interactionResult = new Collider2D[10];
@@ -114,7 +117,7 @@ namespace Scripts.Creatures
 
         public void Throw ()
         {
-            Animator.SetTrigger(ThrowKey);
+            _animator.SetTrigger(ThrowKey);
 
         }
 

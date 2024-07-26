@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _action:
+  _enterAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2418658781202776976}

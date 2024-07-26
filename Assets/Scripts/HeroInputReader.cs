@@ -17,7 +17,7 @@ public class HeroInputReader : MonoBehaviour
 
     public void PressFire(InputAction.CallbackContext context)
     {
-        if (context.canceled)
+        if (context.performed)
         {
             Debug.Log(message: "something");
         }
@@ -28,16 +28,24 @@ public class HeroInputReader : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.canceled)
+        if (context.performed)
         {
             _hero.Interact();
         }
     }
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.canceled)
+        if (context.performed)
         {
             _hero.Attack();
+        }
+    }
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _hero.Throw();
         }
     }
 

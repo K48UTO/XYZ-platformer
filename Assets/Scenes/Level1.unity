@@ -182,21 +182,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _action:
+  _enterAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 34937539}
-        m_TargetAssemblyTypeName: Scripts.Components.ReloadLevelComponent, Assembly-CSharp
-        m_MethodName: Reload
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _exitAction:
     m_PersistentCalls:
       m_Calls: []
@@ -885,9 +873,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _action:
+  _enterAction:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 259083609}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 259083607}
         m_TargetAssemblyTypeName: Scripts.Components.ArmHeroComponent, Assembly-CSharp
         m_MethodName: ArmHero
@@ -1369,21 +1369,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _action:
+  _enterAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 60888289}
-        m_TargetAssemblyTypeName: MovingPlatform, Assembly-CSharp
-        m_MethodName: AddObjectOnPlatform
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _exitAction:
     m_PersistentCalls:
       m_Calls:
@@ -10724,6 +10712,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
+--- !u!114 &1356295908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5967932776564816502, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+  m_PrefabInstance: {fileID: 5967932777641788462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c30dadf31e0f074488dd22c7224bf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1362428528
 GameObject:
   m_ObjectHideFlags: 0
@@ -11530,21 +11529,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _action:
+  _enterAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1740048166}
-        m_TargetAssemblyTypeName: MovingPlatform, Assembly-CSharp
-        m_MethodName: AddObjectOnPlatform
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _exitAction:
     m_PersistentCalls:
       m_Calls:
@@ -11575,14 +11562,6 @@ PrefabInstance:
       propertyPath: _points.Array.data[1]
       value: 
       objectReference: {fileID: 1932878024}
-    - target: {fileID: 1562230651, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.631
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562230651, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.176
-      objectReference: {fileID: 0}
     - target: {fileID: 5967932776564816505, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -12261,33 +12240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _action:
+  _enterAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1762686989}
-        m_TargetAssemblyTypeName: Scripts.Components.ArmHeroComponent, Assembly-CSharp
-        m_MethodName: ArmHero
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1762686988}
-        m_TargetAssemblyTypeName: Scripts.Components.DestroyObjectComponent, Assembly-CSharp
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _exitAction:
     m_PersistentCalls:
       m_Calls: []
@@ -13309,33 +13264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
-  _action:
+  _enterAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1740048166}
-        m_TargetAssemblyTypeName: MovingPlatform, Assembly-CSharp
-        m_MethodName: ActivatePlatform
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: liftActivated
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 60888289}
-        m_TargetAssemblyTypeName: MovingPlatform, Assembly-CSharp
-        m_MethodName: ActivatePlatform
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2114896716}
         m_TargetAssemblyTypeName: CameraShift, Assembly-CSharp
         m_MethodName: ActivateShift
@@ -13862,6 +13793,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5720546409698054389, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.844
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720546409698054389, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816500, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816500, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1356295908}
+    - target: {fileID: 5967932776564816500, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnThrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816500, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HeroInputReader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967932776564816500, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5967932776564816503, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
       propertyPath: CoinsTxt
       value: 
