@@ -10,6 +10,7 @@ namespace Scripts.Creatures.Weapons
     {
         [SerializeField] private float _speed;
         [SerializeField] private GameObject _hero;
+        private int _dynamicSpeedMultipler = 50;
         private int _direction;
 
         private Rigidbody2D _rigidbody;
@@ -18,16 +19,23 @@ namespace Scripts.Creatures.Weapons
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _direction = transform.localScale.x > 0 ? 1:-1;
+
+            //rigidbody  = Dynamic
+            var force = new Vector2(_direction * _speed * _dynamicSpeedMultipler, 0);
+            _rigidbody.AddForce(force, ForceMode2D.Impulse);
+
         }
 
-        private void FixedUpdate()
-        {
-            var position = _rigidbody.position;
+       
+        //rigidbody = kinematic
+        //private void FixedUpdate()
+        //{
+        //    var position = _rigidbody.position;
            
-            position.x += _speed* _direction;
-            _rigidbody.MovePosition(position);
+        //    position.x += _speed* _direction;
+        //    _rigidbody.MovePosition(position);
 
-        }
+        //}
     }
 
 }

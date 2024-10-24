@@ -1,15 +1,19 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Scripts.Utils;
 using UnityEngine;
 using UnityEngine.Events;
 
 
 
 namespace Scripts.Components
-{    public class EnterTriggerComponent : MonoBehaviour
+{
+    public class EnterTriggerComponent : MonoBehaviour
     {
         [SerializeField] private string _tag;
+        [SerializeField] private string _exitTag;
+
+        [SerializeField] private LayerMask _layer = ~0;
+
         [SerializeField] private EnterEvent _enterAction;
         [SerializeField] private EnterEvent _exitAction;
 
@@ -17,22 +21,23 @@ namespace Scripts.Components
         private void OnTriggerEnter2D(Collider2D other)
 
         {
+            if (!other.gameObject.IsInLayer(_layer)) return;
 
-            if (other.gameObject.CompareTag(_tag))
-            {
-                _enterAction?.Invoke(other.gameObject);
-            }
-            else if (_tag == null) _enterAction?.Invoke(other.gameObject);
+            if (!string.IsNullOrEmpty(_tag) && !other.gameObject.CompareTag(_tag)) return;
+
+            _enterAction?.Invoke(other.gameObject);
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag(_tag))
+            if (string.IsNullOrEmpty(_exitTag) || other.gameObject.CompareTag(_exitTag))
             {
+                Debug.Log("OnTriggerExit2D вызван");
+
                 _exitAction?.Invoke(other.gameObject);
             }
-            else if (_tag == null) _exitAction?.Invoke(other.gameObject);
         }
+
         [Serializable]
         public class EnterEvent : UnityEvent<GameObject>
         {
