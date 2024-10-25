@@ -18,6 +18,8 @@ namespace Scripts.Creatures
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
+        [SerializeField] private Cooldown _throwCooldown;
+
         private static readonly int ThrowKey = Animator.StringToHash("throw");
 
 
@@ -117,7 +119,11 @@ namespace Scripts.Creatures
 
         public void Throw ()
         {
-            _animator.SetTrigger(ThrowKey);
+            if (_throwCooldown.IsReady)
+            {
+                _animator.SetTrigger(ThrowKey); 
+                _throwCooldown.Reset();
+            }
 
         }
 

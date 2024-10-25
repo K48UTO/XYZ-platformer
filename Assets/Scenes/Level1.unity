@@ -12528,6 +12528,10 @@ PrefabInstance:
       propertyPath: CoinsTxt
       value: 
       objectReference: {fileID: 1678230337}
+    - target: {fileID: 5967932776564816503, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
+      propertyPath: _throwCooldown._value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5967932776564816505, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
       propertyPath: m_RootOrder
       value: 7
