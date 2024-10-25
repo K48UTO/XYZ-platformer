@@ -72,9 +72,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794dfdccbf03999469c621666662b9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLayer:
+  _layer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   IsTouchingLayer: 0
 --- !u!114 &3424874487605666200
 MonoBehaviour:
@@ -89,6 +89,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _exitTag: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _enterAction:
     m_PersistentCalls:
       m_Calls:
@@ -152,9 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794dfdccbf03999469c621666662b9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLayer:
+  _layer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   IsTouchingLayer: 0
 --- !u!61 &1562230652
 BoxCollider2D:
@@ -5690,9 +5694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794dfdccbf03999469c621666662b9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLayer:
+  _layer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   IsTouchingLayer: 0
 --- !u!1 &5967932777354759532
 GameObject:
@@ -5739,9 +5743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794dfdccbf03999469c621666662b9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLayer:
+  _layer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   IsTouchingLayer: 0
 --- !u!61 &5967932777354759528
 BoxCollider2D:

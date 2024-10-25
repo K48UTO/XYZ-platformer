@@ -18,8 +18,8 @@ namespace Scripts.Creatures
         [SerializeField] private float _attackDelay = 1f;
         [SerializeField] private float _attackCoolDown = 1f;
         [SerializeField] private float _missHeroCooldown = 1f;
-        
-        
+
+
 
 
         private bool _isDead;
@@ -47,20 +47,20 @@ namespace Scripts.Creatures
             }
 
         }
-        private void Start ()
+        private void Start()
         {
-            StartState (_patrol.DoPatrol()); 
+            StartState(_patrol.DoPatrol());
         }
 
-        public void OnHeroVision (GameObject go)
+        public void OnHeroVision(GameObject go)
         {
-            if (_isDead ) return;
+            if (_isDead) return;
             _target = go;
             SetDirectionToTarget();
             StartState(AgroToHero());
         }
 
-        public void OnDie ()
+        public void OnDie()
         {
             _isDead = true;
             _animator.SetBool(IsdeadKey, true);
@@ -92,7 +92,7 @@ namespace Scripts.Creatures
         {
             _particles.Spawn("Exclamation");
             yield return new WaitForSeconds(_alarmDelay);
-           
+
             StartState(GoToHero());
         }
         private IEnumerator GoToHero()
@@ -104,30 +104,31 @@ namespace Scripts.Creatures
                     StartState(Attack());
                 }
                 else
-                {   
+                {
                     if (IsAbyss())
                     {
                         _creature.SetDirection(Vector2.zero);
                     }
-                    else 
+                    else
                     {
                         SetDirectionToTarget();
                     }
                 }
-                
-               
+
+
                 yield return null;
             }
 
             _particles.Spawn("MissHero");
             yield return new WaitForSeconds(_missHeroCooldown);
 
+            
         }
         private void SetDirectionToTarget()
         {
             var direction = _target.transform.position - transform.position;
             direction.y = 0;
-            _creature.SetDirection (direction.normalized);
+            _creature.SetDirection(direction.normalized);
         }
         private IEnumerator Attack()
         {
