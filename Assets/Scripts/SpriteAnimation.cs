@@ -38,8 +38,7 @@ namespace Scripts
         {
 
             _renderer = GetComponent<SpriteRenderer>();
-            _secondsPerFrame = 1f / _frameRate;
-            _nextFrameTime = Time.time + _secondsPerFrame;
+            StartAnimation();
 
             foreach (var clip in _clips)
             {
@@ -52,7 +51,13 @@ namespace Scripts
             }
         }
 
-  
+        private void StartAnimation()
+        {
+            _secondsPerFrame = 1f / _frameRate;
+            _nextFrameTime = Time.time;
+        }
+
+
         private void Update()
         {
             if (!_isPlaying || _nextFrameTime > Time.time) return;
@@ -104,7 +109,7 @@ namespace Scripts
                 _currentClip = sprites;
                 _currentSpriteIndex = 0;
                 _isPlaying = true;
-                _nextFrameTime = Time.time + _secondsPerFrame;
+                _nextFrameTime = Time.time;
             }
             else
             {

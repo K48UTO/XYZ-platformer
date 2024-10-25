@@ -61,7 +61,7 @@ namespace Scripts.Creatures
             _animator.SetBool(IsGroundKey, _isGrounded);
             _animator.SetBool(IsRunning, _direction.x != 0);
             _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
-            UpdateSpriteDirection();
+            UpdateSpriteDirection(_direction);
 
             //ApplyGroundVelocity(); //Если нужно контролировать гравитацию героя через код
 
@@ -156,14 +156,14 @@ namespace Scripts.Creatures
           
 
         }
-        protected virtual void UpdateSpriteDirection()
+        public void UpdateSpriteDirection(Vector2 direction)
         {
             var multipler = _invertScale ? -1 : 1;
-            if (_direction.x > 0)
+            if (direction.x > 0)
             {
                 transform.localScale = new Vector3 (multipler , 1, 1);
             }
-            else if (_direction.x < 0)
+            else if (direction.x < 0)
             {
                 transform.localScale = new Vector3(-1 * multipler, 1, 1);
 

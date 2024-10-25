@@ -9840,10 +9840,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1164003116, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
-      propertyPath: _layer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 1288110237, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
       propertyPath: _points.Array.data[0]
       value: 
@@ -9852,10 +9848,6 @@ PrefabInstance:
       propertyPath: _points.Array.data[1]
       value: 
       objectReference: {fileID: 1500197733}
-    - target: {fileID: 1562230653, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
-      propertyPath: _layer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5967932776564816505, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9904,13 +9896,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sharky 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5967932777354759530, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
-      propertyPath: _layer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8385339548456908506, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
-      propertyPath: _layer.m_Bits
-      value: 512
+    - target: {fileID: 5967932777384857874, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
+      propertyPath: _invertXScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}

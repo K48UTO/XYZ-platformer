@@ -90,11 +90,20 @@ namespace Scripts.Creatures
 
         private IEnumerator AgroToHero()
         {
+            LookAtHero();
             _particles.Spawn("Exclamation");
             yield return new WaitForSeconds(_alarmDelay);
 
             StartState(GoToHero());
         }
+
+        private void LookAtHero()
+        {
+            var direction = GetDirectionToTarget();
+            _creature.SetDirection(Vector2.zero);
+            _creature.UpdateSpriteDirection(direction);
+        }
+
         private IEnumerator GoToHero()
         {
             while (_vision.IsTouchingLayer)
@@ -121,15 +130,23 @@ namespace Scripts.Creatures
 
             _particles.Spawn("MissHero");
             yield return new WaitForSeconds(_missHeroCooldown);
-
+            StartState(_patrol.DoPatrol());
             
         }
         private void SetDirectionToTarget()
         {
+            var direction = GetDirectionToTarget();
+            _creature.SetDirection(direction);
+        }
+        private Vector2 GetDirectionToTarget()
+        {
             var direction = _target.transform.position - transform.position;
             direction.y = 0;
-            _creature.SetDirection(direction.normalized);
+
+            return direction.normalized;
+
         }
+
         private IEnumerator Attack()
         {
             while (_canAttack.IsTouchingLayer)
