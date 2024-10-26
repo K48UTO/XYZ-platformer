@@ -31,6 +31,8 @@ namespace Scripts.Creatures
 
         [SerializeField] private Text CoinsTxt;
 
+
+
         private GameSession _session;
 
         public void OnHealthChanged(int currentHealth)
@@ -51,6 +53,8 @@ namespace Scripts.Creatures
             health.SetHealth(_session.Data.HP);
             UpdateHeroWeapon();
         }
+
+
         protected override float CalculateYVelocity()
         {
             if (_isGrounded) _allowDoubleJump = true;
@@ -111,31 +115,61 @@ namespace Scripts.Creatures
             if (!_session.Data.IsArmed) return;
             base.Attack();
         }
-
-        public void OnDoThrow()
+        public void Throw()
         {
-            _particles.Spawn("Throw");
-        }
-
-        public void Throw ()
-        {
-            if (_throwCooldown.IsReady)
+            if (_throwCooldown.IsReady && _session.Data.Swords > 1)
             {
-                _animator.SetTrigger(ThrowKey); 
+
+                _animator.SetTrigger(ThrowKey);
                 _throwCooldown.Reset();
+
             }
 
         }
 
+        public void OnDoThrow()
+        {
+            _particles.Spawn("Throw");
+            RemoveSword(1);
+        }
+
+
         internal void ArmHero()
         {
-            _session.Data.IsArmed = true;
+
+            if (_session.Data.Swords > 0)
+            {
+                _session.Data.IsArmed = true;
+            }
+            else
+            {
+                _session.Data.IsArmed = false;
+            }
             UpdateHeroWeapon();
         }
 
         private void UpdateHeroWeapon()
         {
+
+
             _animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
+
         }
+
+        public void AddSword(int value)
+        {
+            _session.Data.Swords += value;
+            ArmHero();
+        }
+
+        public void RemoveSword(int value)
+        {
+            _session.Data.Swords -= value;
+            ArmHero();
+        }
+
+        
+
+
     }
 }

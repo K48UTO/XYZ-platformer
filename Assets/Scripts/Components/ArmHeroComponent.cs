@@ -10,7 +10,8 @@ namespace Scripts.Components
             var hero  = go.GetComponent<Hero>();
             if (hero != null)
             {
-                hero.ArmHero();
+                hero.AddSword(1);
+                Debug.Log("оепедюмн левеи 1");
             }
         }
   
