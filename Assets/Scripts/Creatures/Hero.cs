@@ -1,3 +1,4 @@
+using System.Collections;
 using Scripts.Components;
 using Scripts.Model;
 using Scripts.Utils;
@@ -17,6 +18,16 @@ namespace Scripts.Creatures
 
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
+
+        public bool isButtonHeld;
+        public float holdTime;
+        public float throwInterval;
+        private Coroutine _holdCoroutine;
+        private Coroutine _throwingCoroutine;
+
+        private bool isThrowing;
+
+
 
         [SerializeField] private Cooldown _throwCooldown;
 
@@ -115,19 +126,52 @@ namespace Scripts.Creatures
             if (!_session.Data.IsArmed) return;
             base.Attack();
         }
-        public void Throw()
-        {
-            if (_throwCooldown.IsReady && _session.Data.Swords > 1)
-            {
 
-                _animator.SetTrigger(ThrowKey);
-                _throwCooldown.Reset();
+
+        public void Throw(string name)
+        {
+            if (!_throwCooldown.IsReady) return;
+            if (name == "started")
+            {
+                isButtonHeld = true;
+                holdTime = 0f;
+                _holdCoroutine = StartCoroutine(CountHoldTime());
 
             }
+            else if (name == "canceled")
+            {
+                isButtonHeld = false;
+
+                // Остановка корутины и вывод времени удержания
+                if (_holdCoroutine != null)
+                {
+                    StopCoroutine(_holdCoroutine);
+                    Debug.Log("Время удержания кнопки: " + holdTime + " секунд");
+                    if (holdTime >= 1f && _session.Data.Swords > 3)
+                    {
+                        
+                            _throwingCoroutine = StartCoroutine(ThrowSwordBurst());
+                       
+
+                    }
+                    else if (_session.Data.Swords > 1)
+                    {
+
+                        _animator.SetTrigger(ThrowKey);
+                        _throwCooldown.Reset();
+
+                    }
+
+
+                }
+            }
+
+
+
 
         }
 
-        public void OnDoThrow()
+        public void DoSingleThrow()
         {
             _particles.Spawn("Throw");
             RemoveSword(1);
@@ -168,7 +212,33 @@ namespace Scripts.Creatures
             ArmHero();
         }
 
-        
+        private IEnumerator CountHoldTime()
+        {
+            while (isButtonHeld)
+            {
+                holdTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        private IEnumerator ThrowSwordBurst()
+        {
+            isThrowing = true;
+
+            // Очередь из трех бросков (или пока есть мечи в запасе)
+            for (int i = 0; i < 3 && _session.Data.Swords > 1; i++)
+            {
+                _animator.SetTrigger(ThrowKey);
+                
+
+                // Ждём интервал перед следующим броском
+                yield return new WaitForSeconds(throwInterval);
+
+            }
+
+            isThrowing = false;
+        }
+
 
 
     }

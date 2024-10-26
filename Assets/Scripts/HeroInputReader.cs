@@ -7,12 +7,16 @@ using UnityEngine.InputSystem;
 
 public class HeroInputReader : MonoBehaviour
 {
-    [SerializeField] private Hero _hero;  
+    [SerializeField] private Hero _hero;
+   
+  
+
+
 
     public void OnMovement(InputAction.CallbackContext context)
     {
         Vector2 movementInput = context.ReadValue<Vector2>();
-        _hero.SetDirection(movementInput);       
+        _hero.SetDirection(movementInput);
     }
 
     public void PressFire(InputAction.CallbackContext context)
@@ -43,10 +47,23 @@ public class HeroInputReader : MonoBehaviour
 
     public void OnThrow(InputAction.CallbackContext context)
     {
-        if (context.performed)
+
+        if (context.started)
         {
-            _hero.Throw();
+             // сброс времени удержания
+            _hero.Throw("started");
+
+
         }
+        else if (context.canceled)
+        {
+            
+            _hero.Throw("canceled");
+
+        }
+
+
     }
+
 
 }
