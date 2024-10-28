@@ -6819,6 +6819,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799441663 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5967932777251057450, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
+  m_PrefabInstance: {fileID: 1288110235}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb0edd031c9a844d9d0313eef39f746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &831621391 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2418658781202776990, guid: 82e2492b041eaa444a4bb50de0676134, type: 3}
@@ -10101,6 +10112,10 @@ PrefabInstance:
       propertyPath: _points.Array.data[1]
       value: 
       objectReference: {fileID: 1500197733}
+    - target: {fileID: 1519524784219004729, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
+      propertyPath: _attackRange
+      value: 
+      objectReference: {fileID: 799441663}
     - target: {fileID: 5967932776564816505, guid: 2097ae18bd96dcb40928ebde1f3c8b60, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -11639,7 +11654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985787352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.85800004, z: 0}
+  m_LocalPosition: {x: 1, y: -0.84, z: 0}
   m_LocalScale: {x: 10, y: 3.7784, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12168,6 +12183,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1400809100463408482, guid: d97d925ef2fc62c48b116578e3b21120, type: 3}
   m_PrefabInstance: {fileID: 1400809098350380580}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2116206211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7238383228879943910, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+  m_PrefabInstance: {fileID: 7238383228890491911}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3334918ae6725924e97ce364a797c1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2125876667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2330388499964218065, guid: c9048cb46268a5c4ab9d274eab21ebd5, type: 3}
@@ -13034,6 +13060,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7238383228780877717, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+      propertyPath: _enterAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238383228780877717, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+      propertyPath: _enterAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238383228780877717, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+      propertyPath: _enterAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2116206211}
+    - target: {fileID: 7238383228780877717, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+      propertyPath: _enterAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238383228780877717, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+      propertyPath: _enterAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddObjectOnPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238383228780877717, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+      propertyPath: _enterAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MovingPlatform, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238383228780877717, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+      propertyPath: _enterAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7238383228879943896, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
       propertyPath: m_Name
       value: Lift
@@ -13081,6 +13135,10 @@ PrefabInstance:
     - target: {fileID: 7238383228879943907, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238383228879943910, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
+      propertyPath: _isActivated
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b40795fcd06e244e831d14bad9b6c2f, type: 3}
