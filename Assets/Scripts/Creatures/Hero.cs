@@ -229,8 +229,6 @@ namespace Scripts.Creatures
             for (int i = 0; i < 3 && _session.Data.Swords > 1; i++)
             {
                 _animator.SetTrigger(ThrowKey);
-                
-
                 // ∆дЄм интервал перед следующим броском
                 yield return new WaitForSeconds(throwInterval);
 

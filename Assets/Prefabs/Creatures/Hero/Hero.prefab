@@ -4994,6 +4994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5967932776527165440}
   _prefab: {fileID: 3131289979486854761, guid: 4693697725cae134ebd55609c9dd18ad, type: 3}
+  _invertXScale: 0
 --- !u!1 &5967932776564816507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5144,6 +5145,11 @@ MonoBehaviour:
   _interactionCheck: {fileID: 3710797865177481776}
   _armed: {fileID: 9100000, guid: 5f50e37ee43b3814a989fd48208f552a, type: 2}
   _disarmed: {fileID: 9100000, guid: 971e486f6c6d44147972566f7ce52b84, type: 2}
+  isButtonHeld: 0
+  holdTime: 0
+  throwInterval: 0.3
+  _throwCooldown:
+    _value: 1
   _hitParticles: {fileID: 5967932775941546253}
   CoinsTxt: {fileID: 0}
 --- !u!114 &5967932776564816500
@@ -5237,13 +5243,13 @@ MonoBehaviour:
     m_ActionName: Hero/Attack[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5967932776564816507}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 5967932776564816502}
+        m_TargetAssemblyTypeName: HeroInputReader, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5466,6 +5472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5967932776697453377}
   _prefab: {fileID: 1258158248395943481, guid: 44f51d4d4ba444149bceda0fa9e584c9, type: 3}
+  _invertXScale: 0
 --- !u!1 &5967932777251057452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5591,7 +5598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794dfdccbf03999469c621666662b9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundLayer:
+  _layer:
     serializedVersion: 2
     m_Bits: 8
   IsTouchingLayer: 0
@@ -5667,6 +5674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5967932777384857877}
   _prefab: {fileID: 7323902265032317154, guid: e1c93338a31d29944a1b3806207c6228, type: 3}
+  _invertXScale: 0
 --- !u!1 &5967932778025008348
 GameObject:
   m_ObjectHideFlags: 0
@@ -5713,6 +5721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5967932778025008349}
   _prefab: {fileID: 7921698709088473848, guid: 908fcd97425c5f8428080c3f327ca8ff, type: 3}
+  _invertXScale: 0
 --- !u!1 &7746040410626997952
 GameObject:
   m_ObjectHideFlags: 0
@@ -5738,7 +5747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7746040410626997952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.535, y: -0.219, z: 0}
+  m_LocalPosition: {x: 0.844, y: -0.007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5759,3 +5768,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5720546409698054389}
   _prefab: {fileID: 3131289979486854761, guid: 6e6edf33d5318064787101af637d225d, type: 3}
+  _invertXScale: 0
