@@ -1,5 +1,5 @@
 using System.Collections;
-using Scripts.Components;
+using Scripts.Components.Health;
 using Scripts.Model;
 using Scripts.Utils;
 using UnityEditor;

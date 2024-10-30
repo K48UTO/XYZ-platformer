@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Scripts.Components;
+using Scripts.Components.Particles;
 using UnityEngine;
 
 namespace Scripts.Creatures

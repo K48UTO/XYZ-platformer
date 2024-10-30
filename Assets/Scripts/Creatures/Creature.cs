@@ -1,5 +1,5 @@
 using UnityEngine;
-using Scripts.Components;
+using Scripts.Components.Particles;
 
 namespace Scripts.Creatures
 {
