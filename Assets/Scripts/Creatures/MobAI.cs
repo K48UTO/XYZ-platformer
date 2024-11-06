@@ -1,5 +1,6 @@
 using System.Collections;
 using Scripts.Components.Particles;
+using Scripts.Creatures.Patroling;
 using UnityEngine;
 
 namespace Scripts.Creatures

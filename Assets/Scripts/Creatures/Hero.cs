@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Scripts.Components.Health;
 using Scripts.Model;
@@ -15,6 +16,8 @@ namespace Scripts.Creatures
 
         [SerializeField] private float _interacionRadius;
         [SerializeField] private CheckCircleOverlaps _interactionCheck;
+        [SerializeField] private LayerCheck _wallCheck;
+
 
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
@@ -24,6 +27,9 @@ namespace Scripts.Creatures
         public float throwInterval;
         private Coroutine _holdCoroutine;
         private Coroutine _throwingCoroutine;
+        [SerializeField] private bool _isWallClose;
+        [SerializeField] private bool _isOnWall;
+
 
         private bool isThrowing;
 
@@ -32,6 +38,8 @@ namespace Scripts.Creatures
         [SerializeField] private Cooldown _throwCooldown;
 
         private static readonly int ThrowKey = Animator.StringToHash("throw");
+        private static readonly int IsOnWall = Animator.StringToHash("is-on-wall");
+
 
 
         [Space]
@@ -55,6 +63,8 @@ namespace Scripts.Creatures
                 _session.Data.HP = currentHealth;
             }
         }
+
+
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
@@ -63,7 +73,41 @@ namespace Scripts.Creatures
             Debug.Log("Передано из метода старт ХП " + _session.Data.HP);
             health.SetHealth(_session.Data.HP);
             UpdateHeroWeapon();
+
         }
+
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            _isWallClose = IsWallClose();
+            var moveToSameDirection = Direction.x * transform.lossyScale.x > 0;
+            if (_isWallClose && !_isGrounded && moveToSameDirection)
+            {
+                _isOnWall = true;
+                _rigidbody.gravityScale = 0;
+
+                //остановка движения по вертикали
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);  
+                
+                _animator.SetBool(IsOnWall, _isOnWall);
+            }
+            else
+            {
+                _isOnWall = false;
+                _rigidbody.gravityScale = 1;
+                _animator.SetBool(IsOnWall, _isOnWall);
+
+
+            }
+
+        }
+
+        private bool IsWallClose()
+        {
+            return _wallCheck.IsTouchingLayer;
+        }
+
+
 
 
         protected override float CalculateYVelocity()
@@ -149,9 +193,9 @@ namespace Scripts.Creatures
                     Debug.Log("Время удержания кнопки: " + holdTime + " секунд");
                     if (holdTime >= 1f && _session.Data.Swords > 3)
                     {
-                        
-                            _throwingCoroutine = StartCoroutine(ThrowSwordBurst());
-                       
+
+                        _throwingCoroutine = StartCoroutine(ThrowSwordBurst());
+
 
                     }
                     else if (_session.Data.Swords > 1)

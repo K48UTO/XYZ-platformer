@@ -32,7 +32,7 @@ namespace Scripts.Creatures
         [SerializeField] protected bool _isGrounded;
 
         protected Rigidbody2D _rigidbody;
-        private Vector2 _direction;
+        public Vector2 Direction;
         protected Animator _animator;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
@@ -49,19 +49,19 @@ namespace Scripts.Creatures
 
         public virtual void SetDirection(Vector2 directionVector)
         {
-            _direction = directionVector;
+            Direction = directionVector;
         }
 
         protected virtual void FixedUpdate()
         {
             CalculateGrounded();
-            var xVelocity = _direction.x * _speed;
+            var xVelocity = Direction.x * _speed;
             var yVelocity = CalculateYVelocity();
             _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
             _animator.SetBool(IsGroundKey, _isGrounded);
-            _animator.SetBool(IsRunning, _direction.x != 0);
+            _animator.SetBool(IsRunning, Direction.x != 0);
             _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
-            UpdateSpriteDirection(_direction);
+            UpdateSpriteDirection(Direction);
 
             //ApplyGroundVelocity(); //Если нужно контролировать гравитацию героя через код
 
@@ -70,7 +70,7 @@ namespace Scripts.Creatures
         protected virtual float CalculateYVelocity()
         {
             var yVelocity = _rigidbody.velocity.y;
-            var isJumpPressing = (_direction.y > 0) && (_isTakingDamage == false);
+            var isJumpPressing = (Direction.y > 0) && (_isTakingDamage == false);
 
             
             if (isJumpPressing)
