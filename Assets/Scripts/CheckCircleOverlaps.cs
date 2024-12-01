@@ -14,17 +14,14 @@ namespace Scripts
         [SerializeField] private LayerMask _mask;
         [SerializeField] private string[] _tags;
         [SerializeField] private OnOvelapEvent _onOverLap;
-
         
         private readonly Collider2D[] _interactionResult = new Collider2D[10];
-
     
         private void OnDrawGizmosSelected()
         {
             Handles.color = HandlesUtils.TransparentRed;
             Handles.DrawSolidDisc(transform.position, Vector3.forward, _radius);
         }
-
         public void Check()
         {
             var size = Physics2D.OverlapCircleNonAlloc(
@@ -42,7 +39,19 @@ namespace Scripts
                     _onOverLap?.Invoke(_interactionResult[i].gameObject);
                 }   
             }
+
+            //bool isInTag = false;
+            //foreach (var tag in _tags)
+            //{
+            //    if (overlapResult.CompareTag(tag))
+            //    {
+            //        isInTag = true;
+            //        break;
+            //    }
+            //}
+
         }
+
 
         [Serializable]
         public class OnOvelapEvent : UnityEvent <GameObject> 

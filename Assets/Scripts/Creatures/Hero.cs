@@ -27,8 +27,7 @@ namespace Scripts.Creatures
         public float throwInterval;
         private Coroutine _holdCoroutine;
         private Coroutine _throwingCoroutine;
-        [SerializeField] private bool _isWallClose;
-        [SerializeField] private bool _isOnWall;
+        [SerializeField] private bool _isWallClose;        
 
 
         private bool isThrowing;

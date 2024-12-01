@@ -20,7 +20,7 @@ namespace Scripts.Creatures
         [SerializeField] float collisionForceThreshold = 5.0f; // Можно изменить на нужное значение
 
         [SerializeField] private LayerCheck _groundCheck;
-   
+
 
         [SerializeField] protected LayerMask _interactionLayer;
         [SerializeField] protected float _groundCheckRadius;
@@ -30,6 +30,7 @@ namespace Scripts.Creatures
         [SerializeField] private bool _isFalling = false;
         [SerializeField] private bool _isTakingDamage = false; // флаг состояния получения урона 
         [SerializeField] protected bool _isGrounded;
+        [SerializeField] protected bool _isOnWall;
 
         protected Rigidbody2D _rigidbody;
         public Vector2 Direction;
@@ -41,7 +42,7 @@ namespace Scripts.Creatures
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
 
-        protected virtual void Awake ()
+        protected virtual void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
@@ -72,7 +73,7 @@ namespace Scripts.Creatures
             var yVelocity = _rigidbody.velocity.y;
             var isJumpPressing = (Direction.y > 0) && (_isTakingDamage == false);
 
-            
+
             if (isJumpPressing)
             {
 
@@ -107,7 +108,7 @@ namespace Scripts.Creatures
                 }
                 _particles.Spawn("Jump");
             }
-            else if (_allowDoubleJump && isFalling)
+            else if (_allowDoubleJump && isFalling && !_isOnWall)
             {
                 Debug.Log("doubleJump");
                 yVelocity = _jumpSpeed;
@@ -128,7 +129,7 @@ namespace Scripts.Creatures
             return _groundCheck.IsTouchingLayer;
         }
 
-  
+
 
         protected virtual void CalculateGrounded()
         {
@@ -153,7 +154,7 @@ namespace Scripts.Creatures
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
 
             Debug.Log("Taking damage called");
-          
+
 
         }
         public void UpdateSpriteDirection(Vector2 direction)
@@ -161,7 +162,7 @@ namespace Scripts.Creatures
             var multipler = _invertScale ? -1 : 1;
             if (direction.x > 0)
             {
-                transform.localScale = new Vector3 (multipler , 1, 1);
+                transform.localScale = new Vector3(multipler, 1, 1);
             }
             else if (direction.x < 0)
             {
@@ -177,14 +178,14 @@ namespace Scripts.Creatures
         }
         public virtual void Attack()
         {
-            
+
             _animator.SetTrigger(AttackKey);
 
         }
 
         public virtual void OnDoAttack()
         {
-             SpawnAttackDust();
+            SpawnAttackDust();
             _attackRange.Check();
         }
 

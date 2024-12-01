@@ -5253,7 +5253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5967932776564816505
 Transform:
   m_ObjectHideFlags: 0
@@ -5505,6 +5505,8 @@ MonoBehaviour:
   _isFalling: 0
   _isTakingDamage: 0
   _isGrounded: 0
+  _isOnWall: 0
+  Direction: {x: 0, y: 0}
 --- !u!114 &1397740535827908908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5822,7 +5824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5967932777384857877}
   _prefab: {fileID: 7323902265032317154, guid: e1c93338a31d29944a1b3806207c6228, type: 3}
-  _invertXScale: 0
+  _invertXScale: 1
 --- !u!1 &5967932778025008348
 GameObject:
   m_ObjectHideFlags: 0

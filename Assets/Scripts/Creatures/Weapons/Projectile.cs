@@ -9,7 +9,6 @@ namespace Scripts.Creatures.Weapons
     public class Projectile : MonoBehaviour
     {
         [SerializeField] private float _speed;
-        [SerializeField] private GameObject _hero;
         private int _dynamicSpeedMultipler = 50;
         private int _direction;
 
