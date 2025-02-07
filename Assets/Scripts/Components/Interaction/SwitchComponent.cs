@@ -15,7 +15,6 @@ namespace Scripts.Components.Interaction
         public void Switch()
         {
             _state = !_state;
-            Debug.Log("Switch state changed to: " + _state);
             _animator.SetBool(_animationKey, _state);
 
 

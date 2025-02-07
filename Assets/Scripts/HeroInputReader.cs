@@ -50,7 +50,6 @@ public class HeroInputReader : MonoBehaviour
 
         if (context.started)
         {
-             // сброс времени удержания
             _hero.Throw("started");
 
 

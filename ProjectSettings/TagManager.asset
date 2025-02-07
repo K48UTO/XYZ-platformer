@@ -8,6 +8,7 @@ TagManager:
   - Barrel
   - Loot
   - Interactable
+  - Totem
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Loot
   - Player
   - DistanceKeeper
-  - NPS
+  - Enemies
   - 
   - 
   - 
@@ -60,7 +61,7 @@ TagManager:
   - name: Interactive
     uniqueID: 2800161341
     locked: 0
-  - name: NPS
+  - name: NPC
     uniqueID: 1660513683
     locked: 0
   - name: Player

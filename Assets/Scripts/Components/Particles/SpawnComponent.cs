@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.Components.Particles
@@ -10,10 +8,7 @@ namespace Scripts.Components.Particles
         [SerializeField] private GameObject _prefab;
         [SerializeField] private bool _invertXScale;
 
-
-
         [ContextMenu("Spawn")]
-
         public void Spawn()
         {
             var instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);

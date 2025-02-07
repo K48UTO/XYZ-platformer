@@ -24,15 +24,14 @@ namespace Scripts.Components.ColliderBased
             if (!other.gameObject.IsInLayer(_layer)) return;
 
             if (!string.IsNullOrEmpty(_tag) && !other.gameObject.CompareTag(_tag)) return;
-
             _enterAction?.Invoke(other.gameObject);
+           
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
             if (string.IsNullOrEmpty(_exitTag) || other.gameObject.CompareTag(_exitTag))
             {
-                Debug.Log("OnTriggerExit2D вызван");
 
                 _exitAction?.Invoke(other.gameObject);
             }

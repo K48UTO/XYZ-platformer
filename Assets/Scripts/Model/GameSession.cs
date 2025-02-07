@@ -30,16 +30,14 @@ namespace Scripts.Model
 
         public void Save()
         {
-            Debug.Log("Save " +_data.HP);
+            Debug.Log("Save");
             _savedData = _data.Clone();
         }
 
         public void Load()
         {
-            Debug.Log("Метод зазгрузки вызван");
-            Debug.Log($"Было Хп в _data на момент вызова метода: {_data.HP}");
+            Debug.Log("Load");
             _data = _savedData.Clone();
-            Debug.Log($"Стало Хп в _data {_data.HP}");
         }
 
         private bool IsSessionExist()

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Scripts.Components.Health;
 using Scripts.Model;
@@ -56,7 +55,6 @@ namespace Scripts.Creatures
         public void OnHealthChanged(int currentHealth)
         {
 
-            Debug.Log("Метод OnHealthChanged вызван ");
             if (currentHealth != 0)
             {
                 _session.Data.HP = currentHealth;
@@ -69,7 +67,6 @@ namespace Scripts.Creatures
             _session = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
 
-            Debug.Log("Передано из метода старт ХП " + _session.Data.HP);
             health.SetHealth(_session.Data.HP);
             UpdateHeroWeapon();
 
@@ -85,7 +82,6 @@ namespace Scripts.Creatures
                 _isOnWall = true;
                 _rigidbody.gravityScale = 0;
 
-                //остановка движения по вертикали
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);  
                 
                 _animator.SetBool(IsOnWall, _isOnWall);
@@ -185,11 +181,9 @@ namespace Scripts.Creatures
             {
                 isButtonHeld = false;
 
-                // Остановка корутины и вывод времени удержания
                 if (_holdCoroutine != null)
                 {
                     StopCoroutine(_holdCoroutine);
-                    Debug.Log("Время удержания кнопки: " + holdTime + " секунд");
                     if (holdTime >= 1f && _session.Data.Swords > 3)
                     {
 
@@ -268,11 +262,9 @@ namespace Scripts.Creatures
         {
             isThrowing = true;
 
-            // Очередь из трех бросков (или пока есть мечи в запасе)
             for (int i = 0; i < 3 && _session.Data.Swords > 1; i++)
             {
                 _animator.SetTrigger(ThrowKey);
-                // Ждём интервал перед следующим броском
                 yield return new WaitForSeconds(throwInterval);
 
             }

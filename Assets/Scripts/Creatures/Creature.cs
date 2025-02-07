@@ -17,7 +17,7 @@ namespace Scripts.Creatures
         [SerializeField] protected bool _allowDoubleJump;
         [SerializeField] protected bool _allowSuperJump = false;
         [SerializeField] protected float _SuperJumpBonus = 2;
-        [SerializeField] float collisionForceThreshold = 5.0f; // ћожно изменить на нужное значение
+        [SerializeField] float collisionForceThreshold = 5.0f; 
 
         [SerializeField] private LayerCheck _groundCheck;
 
@@ -28,7 +28,7 @@ namespace Scripts.Creatures
         [SerializeField] protected SpawnListComponent _particles;
 
         [SerializeField] private bool _isFalling = false;
-        [SerializeField] private bool _isTakingDamage = false; // флаг состо€ни€ получени€ урона 
+        [SerializeField] private bool _isTakingDamage = false; 
         [SerializeField] protected bool _isGrounded;
         [SerializeField] protected bool _isOnWall;
 
@@ -65,8 +65,6 @@ namespace Scripts.Creatures
             UpdateSpriteDirection(Direction);
 
             //ApplyGroundVelocity(); //≈сли нужно контролировать гравитацию геро€ через код
-
-
         }
         protected virtual float CalculateYVelocity()
         {
@@ -88,7 +86,6 @@ namespace Scripts.Creatures
             }
             return yVelocity;
         }
-
         protected virtual float CalculateJumpVelocity(float yVelocity)
         {
             var isFalling = _rigidbody.velocity.y <= 0.001f;
@@ -110,7 +107,6 @@ namespace Scripts.Creatures
             }
             else if (_allowDoubleJump && isFalling && !_isOnWall)
             {
-                Debug.Log("doubleJump");
                 yVelocity = _jumpSpeed;
                 _particles.Spawn("Jump");
                 _allowDoubleJump = false;
@@ -119,7 +115,6 @@ namespace Scripts.Creatures
             {
                 return yVelocity;
             }
-
             return yVelocity;
 
         }
@@ -128,9 +123,6 @@ namespace Scripts.Creatures
         {
             return _groundCheck.IsTouchingLayer;
         }
-
-
-
         protected virtual void CalculateGrounded()
         {
             _isGrounded = IsGrounded();
@@ -142,20 +134,13 @@ namespace Scripts.Creatures
             else if (_isGrounded && _isFalling)
             {
                 _isFalling = false;
-
             }
-
         }
-
         public virtual void TakeDamage()
         {
             _animator.SetTrigger(Hit);
             _isTakingDamage = true;
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
-
-            Debug.Log("Taking damage called");
-
-
         }
         public void UpdateSpriteDirection(Vector2 direction)
         {
@@ -173,8 +158,6 @@ namespace Scripts.Creatures
         public void ResetDamageFlag()
         {
             _isTakingDamage = false;
-            Debug.Log("ResetDamageFlag called");
-
         }
         public virtual void Attack()
         {
@@ -191,8 +174,6 @@ namespace Scripts.Creatures
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-
-            // ѕровер€ем, достаточно ли сильное столкновение снизу (относительна€ скорость по Y)
             if (collision.relativeVelocity.y >= collisionForceThreshold)
             {
                 SpawnFallDust();

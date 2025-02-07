@@ -11,7 +11,7 @@ public class MovingPlatform : MonoBehaviour
 
     [SerializeField] private bool _isActivated = false;
 
-    private List<Rigidbody2D> objectsOnPlatform = new List<Rigidbody2D>();
+    [SerializeField] private List<Rigidbody2D> objectsOnPlatform = new List<Rigidbody2D>();
 
     public List<Rigidbody2D> ObjectsOnPlatform { get => objectsOnPlatform; set => objectsOnPlatform = value; }
 
@@ -39,19 +39,17 @@ public class MovingPlatform : MonoBehaviour
         }
         else
         {
-            // Установка скорости платформы равной нулю
             rb.velocity = Vector2.zero;
 
-            // Установка скорости всех объектов на платформе равной нулю
             //foreach (var obj in objectsOnPlatform)
             //{
             //    obj.velocity = Vector2.zero;
             //}
         }
-       
+
     }
 
-    
+
     public void AddObjectOnPlatform(GameObject obj)
     {
         var rb = obj.GetComponent<Rigidbody2D>();

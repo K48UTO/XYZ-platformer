@@ -25,7 +25,6 @@ namespace Scripts.Components.Health
             if (_value < 0)
             {
                 _onDamage?.Invoke();
-                Debug.Log("урона нанесено " + -_value);
             }
 
             if (_currentHealth <= 0 && !_isDead) 
@@ -43,13 +42,11 @@ namespace Scripts.Components.Health
         public void MakeInvincible()
         {
             _isInvincible = true;
-            Debug.Log("Make _isInvincibl" + _isInvincible);
         }
 
         public void RemoveInvincibility()
         {
             _isInvincible = false;
-            Debug.Log("Remove _isInvincibl" + _isInvincible);
         }
 
 #if UNITY_EDITOR
@@ -63,7 +60,6 @@ namespace Scripts.Components.Health
         public void SetHealth(int health)
         {
             _currentHealth = health;
-            Debug.Log("Установлено здоровья " + health);
         }
     }
     [Serializable]

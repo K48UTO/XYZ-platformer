@@ -11,7 +11,6 @@ namespace Scripts.Components.Collectable
             if (hero != null)
             {
                 hero.AddSword(1);
-                Debug.Log("оепедюмн левеи 1");
             }
         }
   

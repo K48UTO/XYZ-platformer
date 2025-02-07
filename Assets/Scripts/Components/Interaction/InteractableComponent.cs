@@ -12,7 +12,6 @@ namespace Scripts.Components.Interaction
 
         public void Interact()
         {
-            Debug.Log("Interact InteractableComponent called");
             _action?.Invoke();
         }
 

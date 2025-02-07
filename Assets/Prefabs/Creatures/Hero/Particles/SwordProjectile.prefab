@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1042990346427664332}
   _prefab: {fileID: 3131289979486854761, guid: 33b35f35ec408e44c9cf95e597b39b1f, type: 3}
+  _invertXScale: 0
 --- !u!1 &3131289979486854761
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.2
-  _hero: {fileID: 5967932776564816507, guid: a99cfd0b1d4539249ad9879510055af7, type: 3}
 --- !u!114 &-3464896589061007186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,11 +256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504d90f35df3dac4cba4e1e6d06a5bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Enemy
+  _tag: 
   _exitTag: 
   _layer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2048
   _enterAction:
     m_PersistentCalls:
       m_Calls:
