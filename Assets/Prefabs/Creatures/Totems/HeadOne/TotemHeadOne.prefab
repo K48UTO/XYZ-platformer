@@ -334,8 +334,11 @@ MonoBehaviour:
   _coolDown:
     _value: 2
   _rangeAttack: {fileID: 2887182268603259800}
+  _deadBodySpawner: {fileID: 2336653011860618832}
   _mainTotem: {fileID: 9100000, guid: 2e68f0617d0d99e43b89a5384c68e973, type: 2}
   _notMainTotem: {fileID: 9100000, guid: 398dac75c69f45d44989254c81914c10, type: 2}
+  _mainDeadTotem: {fileID: 7896109930066018076, guid: 13af220eef1a2d24088c1e04447ca27d, type: 3}
+  _deadTotem: {fileID: 7896109930066018076, guid: 1baa807f35c61ac44ad97000dcf3f22d, type: 3}
   _topTotem: {fileID: 0}
   _bottomTotem: {fileID: 0}
   _isMain: 0

@@ -10,11 +10,15 @@ public class TotemAI : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private Cooldown _coolDown;
     [SerializeField] private SpawnComponent _rangeAttack;
+    [SerializeField] private SpawnComponent _deadBodySpawner;
+
 
     public static readonly int Attack = Animator.StringToHash("attack");
 
     [SerializeField] private AnimatorController _mainTotem;
     [SerializeField] private AnimatorController _notMainTotem;
+    [SerializeField] private GameObject _mainDeadTotem;
+    [SerializeField] private GameObject _deadTotem;
     private Animator _animator;
 
     [SerializeField] private TotemAI _topTotem;
@@ -52,7 +56,10 @@ public class TotemAI : MonoBehaviour
     public void RangeAttack()
     {
         _coolDown.Reset();
-        _animator?.SetTrigger(Attack);
+        if (_animator !=null)
+        {
+            _animator.SetTrigger(Attack); 
+        }
     }
     public void OnRangeAttack()
     {
@@ -63,11 +70,16 @@ public class TotemAI : MonoBehaviour
     {
         _isMain = true;
         _animator.runtimeAnimatorController = _mainTotem;
+        _deadBodySpawner.SetPrefabToSpawn(_mainDeadTotem);
+
+
     }
     private void UnsetAsMain()
     {
+
         _isMain = false;
         _animator.runtimeAnimatorController = _notMainTotem;
+        _deadBodySpawner.SetPrefabToSpawn(_deadTotem);
     }
     public void TransferRole(GameObject totem)
     {

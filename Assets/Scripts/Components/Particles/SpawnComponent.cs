@@ -16,6 +16,11 @@ namespace Scripts.Components.Particles
             scale.x = scale.x * (_invertXScale ? -1 : 1);            
             instantiate.transform.localScale = scale;
         }
+
+        public void SetPrefabToSpawn (GameObject obj)
+        {
+            _prefab = obj;
+        }
     }
 
 }
